@@ -16,7 +16,7 @@ a {
 }
 
 * {
-  box-sizing: border-box;
+  box-sizing: "";
 }
 
 @media (prefers-color-scheme: dark) {
