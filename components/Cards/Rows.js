@@ -6,17 +6,19 @@ import GetInfo from '../GetInfo'
 
 const Rows = (props) => {
   
-  const getColor = (Dia) =>{
-    if (unidad.Dia.cliente && unidad.Dia.destino) {
+  const {unidad} = props
+  
+  const getColores = (Dia) =>{
+    if (Dia.cliente && Dia.destino) {
       return "bg-green-600"
-    }if (unidad.Dia.cliente || unidad.Dia.destino) {
+    }if (Dia.cliente || Dia.destino) {
       return "bg-amber-500"
     }else{
       return "bg-white"
     }
   }
   
-  const {unidad} = props
+  
   
   return (
     <div className='md:w-full grid grid-cols-8 gap-4 font-bold text-base'>
@@ -25,7 +27,7 @@ const Rows = (props) => {
         <label>{unidad.id}</label>
       </div>
 
-      <div className='justify-around bg-white py-4 mt-2 rounded-lg'>
+      <div className={ 'justify-around  py-4 mt-2 rounded-lg ' + getColores(unidad.LUNES)}>
           <GetInfo value={unidad.LUNES.cliente} dia={unidad.LUNES.cliente} title="Cliente: " style='bg-white text-black mx-auto ' />      
           <GetInfo value={unidad.LUNES.destino}  title="Destino: " style='bg-white text-black mx-auto '/>       
       </div>
