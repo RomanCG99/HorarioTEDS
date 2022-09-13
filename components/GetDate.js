@@ -9,7 +9,7 @@ const GetDate = () => {
   return (
     <div  className='md:w-full mx-auto bg-gray-200 grid grid-cols-8 gap-4 pt-2 font-bold text-base'>
         <div className='flex justify-around text-blue-900'>
-          <span className="material-symbols-outlined">edit</span>
+          <button><span className="material-symbols-outlined">edit</span></button>
           <label>UNIDAD</label>
         </div>
         {listDate}
