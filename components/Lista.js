@@ -14,11 +14,11 @@ const Lista = (props) => {
     }
     return (
         <div className='md:w-full grid grid-cols-8 gap-2 text-center bg-gray-700'>
-            <div className='flex my-auto py-1'>
+            <div className='flex my-auto py-1 mx-2'>
                 <button>
                     <span class="material-symbols-outlined text-blue">edit</span>
                 </button>
-                <label className="text-md font-semibold text-blue-700"> {unidad.id} </label>
+                <label className="mx-8 text-md font-semibold text-blue-700"> {unidad.id} </label>
             </div>
             <div className='w-full py-1'>
                 <div className={'py-1 text-center rounded ' + getColors(unidad.LUNES)}>
