@@ -6,7 +6,7 @@ const MainLayout = () => {
     return (
         <header className='md: bg-white '>
             <div className='mx-auto flex  w-20 py-2'>
-                <div classname='h-fill'>
+                <div className='h-fill'>
                     <Image src={imagen}/>
                 </div>
             </div>

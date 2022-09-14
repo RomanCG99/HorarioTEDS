@@ -13,7 +13,7 @@ const CardHorario = () => {
     return (
         <div className='w-full grid grid-cols-8 text-center bg-gray-200'>
             <div id="Tabla" className='py-1'>
-            <span class="material-symbols-outlined">edit</span>
+            <span class=" material-symbols-outlined text-blue-900 mx-4 ">edit</span>
             <label className="text-md my-auto font-semibold"> Unidad </label>
             </div>
             {weekdaylist}
