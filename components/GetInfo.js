@@ -25,8 +25,8 @@ const GetInfo = (props) => {
     const { value, title,dia} = props
     const estilazo = getColores(dia) 
 
-    const Labelstyle = " mr-1"
-    const Inputstyle = " "
+    const Labelstyle = " w-1/4 mr-1"
+    const Inputstyle = " w-3/4 "
 
     return (
         <div className='flex mb-1'>

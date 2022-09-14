@@ -16,7 +16,7 @@ const Rows = (props) => {
   const {unidad} = props
   
   return (
-    <div className='md:w-full grid grid-cols-8 gap-4 font-bold text-base'>
+    <div className='md:w-full grid grid-cols-8 gap-2 font-bold text-base'>
       <div className='flex justify-around my-auto'>
         <button><span className="material-symbols-outlined text-indigo-700 font-semibold">edit</span></button>
         <label>{unidad.id}</label>
