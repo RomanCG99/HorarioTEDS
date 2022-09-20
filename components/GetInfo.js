@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {useState} from 'react';
 
 
 function getColores(Dia) {
@@ -22,8 +22,9 @@ function getColores(Dia) {
 
 const GetInfo = (props) => {
     
-    const { value, title,dia} = props
+    const { value, title,dia,} = props
     const estilazo = getColores(dia) 
+    const [firstName, setFirstName] = useState(value ? value:'');
 
     const Labelstyle = " w-1/4 mr-1"
     const Inputstyle = " w-3/4 "
@@ -31,7 +32,7 @@ const GetInfo = (props) => {
     return (
         <div className='flex mb-1'>
             <label className={estilazo.label + Labelstyle} > {title} </label>
-            <input value={value} className={estilazo.input + Inputstyle}  />
+            <input input value={firstName} onChange={e => setFirstName(e.target.value)} className={estilazo.input + Inputstyle}  />
         </div>
     )
 }
