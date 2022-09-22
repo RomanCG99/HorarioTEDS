@@ -41,16 +41,16 @@ query obtenerViaje {
 }`
 
 export default function Home() {
-  cosnt[data] = useQuery(DATA);
+  const {data} = useQuery(DATA);
   return (
     <div>
       <MainLayout />
       <CardInicioInfo />
       <CardHorario />
       {
-        data ? (data.obtenerViaje.map(Schedule => (
-          <Lista key={Schedule.id} unidad={Schedule} />
-        ))) : null
+        data ?(data.obtenerViaje.map(Schedule => (
+          <Lista key={Schedule.id} unidad={Schedule}/>
+        ))):null
       }
     </div>
   )
