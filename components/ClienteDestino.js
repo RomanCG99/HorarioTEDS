@@ -23,13 +23,13 @@ function inputColor(Dia) {
     }
 }
 const ClienteDestino = (props) => {
-    const { label, inp, type, estilolabel, estiloinput, color } = props;
+    const { label, inp, type, estilolabel, estiloinput, color , onChange, id} = props;
     const Color = inputColor(color)
 
     return (
         <div className="flex md:w-full rounded py-2">
             <label className= {Color.label + estilolabel} > {label} </label>
-            <input className= {Color.input + estiloinput} type={type} value={inp} />
+            <input onChange={onChange} id={id} value={inp} className= {Color.input + estiloinput} type={type}  />
         </div>
     )
 }

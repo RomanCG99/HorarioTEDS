@@ -9,8 +9,10 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@apollo/client": "^3.6.9",
     "autoprefixer": "^10.4.8",
     "formik": "^2.2.9",
+    "graphql": "^16.6.0",
     "moment": "^2.29.4",
     "next": "12.3.0",
     "postcss": "^8.4.16",
