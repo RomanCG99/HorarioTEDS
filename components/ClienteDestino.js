@@ -17,8 +17,8 @@ function inputColor(Dia) {
     else {
         return{
 
-            label : "bg-white text-blue-900",
-            input : "bg-white text-blue-900"
+            label : "text-blue-900 bg-white ",
+            input : "text-blue-900 bg-white "
         }
     }
 }
@@ -28,7 +28,7 @@ const ClienteDestino = (props) => {
 
     return (
         <div className="flex md:w-full rounded py-2">
-            <label className= {Color.label + estilolabel} > {label} </label>
+            <label className= {Color.label + estilolabel}> {label} </label>
             <input onChange={onChange} id={id} value={inp} className= {Color.input + estiloinput} type={type}  />
         </div>
     )
