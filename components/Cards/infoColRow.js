@@ -1,33 +1,81 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import Rows from './Rows';
+import { useQuery, gql } from '@apollo/client';
+import GetDays from '../../components/GetDays';
+import GetDate from '../GetDate'
+import LogoColor from '../../img/LogoColor.png'
+import Image from 'next/image'
 
+const DATA = gql`
+    query obtenerUnidades {
+    obtenerUnidades {
+        id
+        unidad
+        lunes {
+        nombre
+        destino
+        }
+        martes {
+        nombre
+        destino
+        }
+        miercoles {
+        nombre
+        destino
+        }
+        jueves {
+        nombre
+        destino
+        }
+        viernes {
+        nombre
+        destino
+        }
+        sabado {
+        nombre
+        destino
+        }
+        domingo {
+        nombre
+        destino
+        }
+        servicio
+    }
+    }
+`
+    ;
 
 const infoColRow = () => {
 
-    const defaultRows = [
-        { id: "ARG981UH90", LUNES: { cliente: 'Kensa', destino: '' }, MARTES: { cliente: '', destino: '' }, MIERCOLES: { cliente: '', destino: '' }, JUEVES: { cliente: '', destino: '' }, VIERNES: { cliente: 'Kensa', destino: 'Ramos Arizpe' }, SABADO: { cliente: 'Kensa', destino: 'Ramos Arizpe' }, DOMINGO: { cliente: '', destino: '' } },
-        { id: "FUH193UH90", LUNES: { cliente: 'KENSA', destino: 'Ramos Arizpe' }, MARTES: { cliente: 'Kensa', destino: 'Ramos Arizpe' }, MIERCOLES: { cliente: '', destino: '' }, JUEVES: { cliente: 'Kensa', destino: 'Ramos Arizpe' }, VIERNES: { cliente: '', destino: '' }, SABADO: { cliente: 'Kensa', destino: 'Ramos Arizpe' }, DOMINGO: { cliente: 'Kensa', destino: '' } },
-        { id: "POW238UH90", LUNES: { cliente: 'kensa', destino: 'GDL' }, MARTES: { cliente: 'kensa', destino: '' }, MIERCOLES: { cliente: '', destino: '' }, JUEVES: { cliente: '', destino: '' }, VIERNES: { cliente: '', destino: '' }, SABADO: { cliente: 'Kensa', destino: 'Ramos Arizpe' }, DOMINGO: { cliente: 'Kensa', destino: 'Ramos Arizpe' } },
-        { id: "FOM887UH90", LUNES: { cliente: 'Kensa', destino: 'Ramos Arizpe' }, MARTES: { cliente: '', destino: '' }, MIERCOLES: { cliente: 'KENSA', destino: '' }, JUEVES: { cliente: 'Kensa', destino: 'Ramos Arizpe' }, VIERNES: { cliente: 'Kensa', destino: 'Ramos Arizpe' }, SABADO: { cliente: '', destino: '' }, DOMINGO: { cliente: 'Kensa', destino: 'Ramos Arizpe' } },
-        { id: "QPL039UH90", LUNES: { cliente: 'Kensa', destino: 'Ramos Arizpe' }, MARTES: { cliente: '', destino: '' }, MIERCOLES: { cliente: 'KENSA', destino: 'RAMOS ARIZPE' }, JUEVES: { cliente: '', destino: '' }, VIERNES: { cliente: 'Kensa', destino: 'Ramos Arizpe' }, SABADO: { cliente: 'Kensa', destino: 'Ramos Arizpe' }, DOMINGO: { cliente: '', destino: '' } },
-        { id: "YUD671UH90", LUNES: { cliente: '', destino: '' }, MARTES: { cliente: 'Kensa', destino: 'Ramos Arizpe' }, MIERCOLES: { cliente: '', destino: '' }, JUEVES: { cliente: 'Kensa', destino: 'Ramos Arizpe' }, VIERNES: { cliente: '', destino: '' }, SABADO: { cliente: 'Kensa', destino: '' }, DOMINGO: { cliente: 'Kensa', destino: 'Ramos Arizpe' } },
-        { id: "GPD004UH90", LUNES: { cliente: '', destino: '' }, MARTES: { cliente: 'Kensa', destino: 'Ramos Arizpe' }, MIERCOLES: { cliente: 'KENSA', destino: '' }, JUEVES: { cliente: 'Kensa', destino: 'Ramos Arizpe' }, VIERNES: { cliente: 'Kensa', destino: 'Ramos Arizpe' }, SABADO: { cliente: 'Kensa', destino: '' }, DOMINGO: { cliente: '', destino: '' } },
-        { id: "GPD004UH90", LUNES: { cliente: 'Kensa', destino: 'Ramos Arizpe' }, MARTES: { cliente: '', destino: '' }, MIERCOLES: { cliente: 'KENSA', destino: 'RAMOS ARIZPE' }, JUEVES: { cliente: 'Kensa', destino: 'Ramos Arizpe' }, VIERNES: { cliente: '', destino: '' }, SABADO: { cliente: 'Kensa', destino: '' }, DOMINGO: { cliente: '', destino: '' } },
-        { id: "GPD004UH90", LUNES: { cliente: '', destino: '' }, MARTES: { cliente: '', destino: '' }, MIERCOLES: { cliente: '', destino: '' }, JUEVES: { cliente: '', destino: '' }, VIERNES: { cliente: 'Kensa', destino: 'Ramos Arizpe' }, SABADO: { cliente: 'Kensa', destino: 'Ramos Arizpe' }, DOMINGO: { cliente: 'Kensa', destino: 'Ramos Arizpe' } },
-        { id: "GPD004UH90", LUNES: { cliente: 'Kensa', destino: 'Ramos Arizpe' }, MARTES: { cliente: 'Kensa', destino: 'Ramos Arizpe' }, MIERCOLES: { cliente: '', destino: '' }, JUEVES: { cliente: 'Kensa', destino: 'Ramos Arizpe' }, VIERNES: { cliente: 'Kensa', destino: 'Ramos Arizpe' }, SABADO: { cliente: '', destino: '' }, DOMINGO: { cliente: '', destino: '' } },
-        { id: "GPD004UH90", LUNES: { cliente: 'Kensa', destino: 'Ramos Arizpe' }, MARTES: { cliente: '', destino: '' }, MIERCOLES: { cliente: 'KENSA', destino: 'RAMOS ARIZPE' }, JUEVES: { cliente: 'Kensa', destino: 'Ramos Arizpe' }, VIERNES: { cliente: '', destino: '' }, SABADO: { cliente: '', destino: '' }, DOMINGO: { cliente: 'Kensa', destino: 'Ramos Arizpe' } },
-        { id: "GPD004UH90", LUNES: { cliente: 'Kensa', destino: 'Ramos Arizpe' }, MARTES: { cliente: 'Kensa', destino: 'Ramos Arizpe' }, MIERCOLES: { cliente: 'KENSA', destino: '' }, JUEVES: { cliente: '', destino: '' }, VIERNES: { cliente: 'Kensa', destino: '' }, SABADO: { cliente: '', destino: '' }, DOMINGO: { cliente: 'Kensa', destino: '' } },
-    ];
+    const { data, startPolling, stopPolling } = useQuery(DATA);
 
-  return (
-    <div className='row'>
-        {defaultRows.map((defaultrows, dar) =>{
-            return(
-                <Rows key={dar}  id={defaultrows.id} unidad={defaultrows} dia={defaultrows}/>
-            )
-        })}
-    </div>
-  )
+    useEffect(() => {
+        startPolling(1000);
+        return () => {
+            stopPolling();
+        }
+    }, [startPolling, stopPolling])
+
+    return (
+        <div className='row'>
+            <div className='w-full bg-white flex justify-center mb-4 pt-2'>
+                <div className='md:w-1/12 h-fit pb-2'>
+                    <Image src={LogoColor} alt="Logo" />
+                </div>
+            </div>
+            <GetDays />
+            <GetDate />
+
+            {
+                data ? data.obtenerUnidades.map((unidad, dar) => {
+                    return (
+                        <Rows key={dar} id={unidad.id} unidad={unidad} />
+                    )
+                }) : null
+            }
+        </div>
+    )
 }
+
 
 export default infoColRow

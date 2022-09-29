@@ -2,13 +2,13 @@ import React from 'react'
 
 
 function getColores(Dia) {
-    if (Dia.cliente && Dia.destino) {
+    if (Dia.nombre && Dia.destino) {
         return{
             label: 'bg-green-600 text-white',
             input: 'bg-green-600 text-white',
         }
     }
-    if (Dia.cliente || Dia.destino) {
+    if (Dia.nombre || Dia.destino) {
         return{
             label: 'bg-amber-500 text-white',
             input: 'bg-amber-500 text-white'
@@ -22,16 +22,16 @@ function getColores(Dia) {
 
 const GetInfo = (props) => {
     
-    const { value, title,dia} = props
+    const { value, title,id, dia, name, onChange} = props
     const estilazo = getColores(dia) 
 
-    const Labelstyle = " w-1/4 mr-1"
-    const Inputstyle = " w-3/4 "
+    const Labelstyle = " w-1/4 mr-1" 
+    const Inputstyle = " w-3/4 mr-1"
 
     return (
         <div className='flex mb-1'>
             <label className={estilazo.label + Labelstyle} > {title} </label>
-            <input value={value} className={estilazo.input + Inputstyle}  />
+            <input id={id} name={name} value={value} onChange={onChange} className={estilazo.input + Inputstyle}  />
         </div>
     )
 }
