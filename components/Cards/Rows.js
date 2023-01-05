@@ -209,7 +209,7 @@ const Rows = (props) => {
       {
 
         unidad.servicio ?
-          <form onSubmit={formik.handleSubmit} className="md:w-full grid grid-cols-8 gap-2 font-bold text-base">
+          <form onSubmit={formik.handleSubmit} className="md:w-full grid grid-cols-8 gap-2 font-bold text-base mr-2">
 
             <div className='flex justify-around my-auto'>
               <button type='submit' ><span className="material-symbols-outlined text-indigo-700 font-semibold">edit</span></button>
